@@ -13,10 +13,11 @@ When the user provides a new game, follow this process:
 ### PHASE 1 — Game Analysis (Step 1)
 
 **1.1 Game Category Identification**
-- Primary genre: RPG / SLG / Puzzle / Card / Casino / Casual / Action / Strategy / Simulation / Sports
+- Primary genre: RPG / SLG / Puzzle / Card / Casino / Casual / Action / Strategy / Simulation / Sports / **Extraction Shooter**
 - Sub-genre and hybrid elements
 - Gameplay loop: core mechanic, progression system, social features
 - P2E / F2P / Premium / Subscription model
+- For Extraction Shooter / Battle Royale / Hero Shooter: note the specific sub-type (e.g., "搜打撤" extraction, "近战竞技", BR, MOBA-Arena, etc.)
 
 **1.2 Unique Feature Extraction**
 - What makes this game stand out from同类?
@@ -54,7 +55,7 @@ For each competitor:
 - ARPPU assumption based on category benchmarks:
   - Casual: $5–20 ARPPU
   - Mid-core: $20–100 ARPPU
-  - Hardcore / SLG: $100–500+ ARPPU
+  - Hardcore / SLG / Extraction Shooter: $100–500+ ARPPU
 - Estimated conversion rate (free → paying)
 - Revenue = DAU × conversion × ARPPU
 - Best / Base / Bear case scenarios
@@ -69,6 +70,7 @@ For each competitor:
   - East Asia (Korea/Japan/Taiwan): Google, Meta, TikTok, LINE Ads
   - Europe: Google, Meta, TikTok, Unity Ads
   - US: Google, Meta, TikTok, Unity, Apple Search Ads
+  - LATAM: Google Ads, Facebook/Meta, TikTok
 - Creative strategy: trailers, gameplay clips, influencer UGC
 - Retargeting plan for installers who did not convert
 
@@ -129,11 +131,12 @@ Structure the final deliverable as:
 
 | Category | Typical D1 Retention | Typical D30 Retention | ARPPU Range |
 |----------|---------------------|-----------------------|-------------|
-| Casino / Slots | 40–60% | 10–20% | $100–500+ |
+| casino / Slots | 40–60% | 10–20% | $100–500+ |
 | SLG | 30–45% | 8–15% | $80–300 |
 | RPG | 30–50% | 10–20% | $50–200 |
 | Puzzle / Casual | 25–40% | 5–10% | $5–30 |
 | Card / CCG | 25–40% | 8–15% | $30–100 |
 | Action / Battle Royale | 30–50% | 8–12% | $10–50 |
+| Extraction Shooter | 35–55% | 10–20% | $50–200 |
 
 Use these as sanity checks when reviewing user-provided data.
