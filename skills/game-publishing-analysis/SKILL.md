@@ -109,8 +109,9 @@ references/
 ├── ea-market-profile.md            ← Step2：日本 + 韩国
 ├── emea-market-profile.md          ← Step2：欧洲 + 中东
 ├── trend-discovery.md              ← Step3：趋势发现（TREND Filter）
-├── ua-creative-guide.md            ← Step3：UA素材与投放策略
-└── om-data-reading.md              ← Step3：OM数据解读
+├── ua-creative-guide.md            ← Step3：UA素材与投放策略（含素材优先级逻辑）
+├── om-data-reading.md              ← Step3：OM数据解读（含TA验证框架+区域对比看板）
+└── rating-management.md            ← 评分管理策略（关服/开服/紧急预案SOP）
 ```
 
 ---
