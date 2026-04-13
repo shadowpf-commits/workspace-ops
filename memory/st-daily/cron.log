@@ -660,3 +660,410 @@ Generated: 2026-04-03 11:00:06
 Traceback (most recent call last):
   File "<stdin>", line 7, in <module>
 FileNotFoundError: [Errno 2] No such file or directory: ''
+=== Sensor Tower Daily Scrape ===
+Timestamp: 2026-04-07 11:00:01 CST
+Date: 2026-04-07
+Fetching game_taxonomy/stats...
+Fetching game_taxonomy/ip_media_type_hierarchy...
+Fetching unified/internal_entities...
+Generating daily summary...
+=== Sensor Tower Daily Summary — 2026-04-07 ===
+Generated: 2026-04-07 11:00:07
+
+## Top Categories by Downloads (Unified)
+  5080: 2,141,578
+  6010: 1,287,779
+  1000010: 1,059,754
+  3000040: 1,032,348
+  2000040: 1,031,076
+  2000060: 845,689
+  6030: 739,747
+  5090: 735,944
+  1000: 722,213
+  3000030: 682,144
+  8025: 672,987
+  1001: 506,363
+  4000820: 359,297
+  1000060: 342,547
+  100104: 339,715
+
+## IP Types by App Count
+  Animated Film: 265 apps
+  Animated Television: 731 apps
+  Anime / Manga: 1115 apps
+  Board Game: 288 apps
+  Books: 251 apps
+  Casino: 166 apps
+  Celebrity: 266 apps
+  Comics: 327 apps
+  Film: 238 apps
+  Food: 2 apps
+  Sports: 560 apps
+  Television: 424 apps
+  Toys: 439 apps
+  Videogame: 1994 apps
+
+## Internal Entities
+  Apps tracked: 0
+  Publishers: 0
+
+=== End of Summary ===
+
+Saved to /Users/shadow/.openclaw/workspace/memory/st-daily/2026-04-07.md
+
+Scrape complete.
+
+=== Daily Summary ===
+=== Sensor Tower Daily Summary — 2026-04-07 ===
+Generated: 2026-04-07 11:00:07
+
+## Top Categories by Downloads (Unified)
+  5080: 2,141,578
+  6010: 1,287,779
+  1000010: 1,059,754
+  3000040: 1,032,348
+  2000040: 1,031,076
+  2000060: 845,689
+  6030: 739,747
+  5090: 735,944
+  1000: 722,213
+  3000030: 682,144
+  8025: 672,987
+  1001: 506,363
+  4000820: 359,297
+  1000060: 342,547
+  100104: 339,715
+
+## IP Types by App Count
+  Animated Film: 265 apps
+  Animated Television: 731 apps
+  Anime / Manga: 1115 apps
+  Board Game: 288 apps
+  Books: 251 apps
+  Casino: 166 apps
+  Celebrity: 266 apps
+  Comics: 327 apps
+  Film: 238 apps
+  Food: 2 apps
+  Sports: 560 apps
+  Television: 424 apps
+  Toys: 439 apps
+  Videogame: 1994 apps
+
+## Internal Entities
+  Apps tracked: 0
+  Publishers: 0
+
+=== End of Summary ===
+=== DONE: 2026-04-07 11:00:01 CST ===
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: ''
+=== Sensor Tower Daily Scrape ===
+Timestamp: 2026-04-08 11:00:01 CST
+Date: 2026-04-08
+Fetching game_taxonomy/stats...
+Fetching game_taxonomy/ip_media_type_hierarchy...
+Fetching unified/internal_entities...
+Generating daily summary...
+=== Sensor Tower Daily Summary — 2026-04-08 ===
+Generated: 2026-04-08 11:00:07
+
+## Top Categories by Downloads (Unified)
+  5080: 2,141,581
+  6010: 1,287,775
+  1000010: 1,060,268
+  3000040: 1,033,326
+  2000040: 1,031,525
+  2000060: 846,404
+  6030: 739,747
+  5090: 735,949
+  1000: 722,210
+  3000030: 682,300
+  8025: 673,518
+  1001: 506,363
+  4000820: 359,296
+  1000060: 342,819
+  100104: 339,715
+
+## IP Types by App Count
+  Animated Film: 265 apps
+  Animated Television: 731 apps
+  Anime / Manga: 1115 apps
+  Board Game: 288 apps
+  Books: 251 apps
+  Casino: 166 apps
+  Celebrity: 266 apps
+  Comics: 327 apps
+  Film: 238 apps
+  Food: 2 apps
+  Sports: 560 apps
+  Television: 424 apps
+  Toys: 439 apps
+  Videogame: 1994 apps
+
+## Internal Entities
+  Apps tracked: 0
+  Publishers: 0
+
+=== End of Summary ===
+
+Saved to /Users/shadow/.openclaw/workspace/memory/st-daily/2026-04-08.md
+
+Scrape complete.
+
+=== Daily Summary ===
+=== Sensor Tower Daily Summary — 2026-04-08 ===
+Generated: 2026-04-08 11:00:07
+
+## Top Categories by Downloads (Unified)
+  5080: 2,141,581
+  6010: 1,287,775
+  1000010: 1,060,268
+  3000040: 1,033,326
+  2000040: 1,031,525
+  2000060: 846,404
+  6030: 739,747
+  5090: 735,949
+  1000: 722,210
+  3000030: 682,300
+  8025: 673,518
+  1001: 506,363
+  4000820: 359,296
+  1000060: 342,819
+  100104: 339,715
+
+## IP Types by App Count
+  Animated Film: 265 apps
+  Animated Television: 731 apps
+  Anime / Manga: 1115 apps
+  Board Game: 288 apps
+  Books: 251 apps
+  Casino: 166 apps
+  Celebrity: 266 apps
+  Comics: 327 apps
+  Film: 238 apps
+  Food: 2 apps
+  Sports: 560 apps
+  Television: 424 apps
+  Toys: 439 apps
+  Videogame: 1994 apps
+
+## Internal Entities
+  Apps tracked: 0
+  Publishers: 0
+
+=== End of Summary ===
+=== DONE: 2026-04-08 11:00:01 CST ===
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: ''
+=== Sensor Tower Daily Scrape ===
+Timestamp: 2026-04-09 11:00:00 CST
+Date: 2026-04-09
+Fetching game_taxonomy/stats...
+Fetching game_taxonomy/ip_media_type_hierarchy...
+Fetching unified/internal_entities...
+Generating daily summary...
+=== Sensor Tower Daily Summary — 2026-04-09 ===
+Generated: 2026-04-09 11:01:19
+
+taxonomy_stats parse error: Expecting value: line 2 column 1 (char 1)
+
+ip_media parse error: Expecting value: line 2 column 1 (char 1)
+
+## Internal Entities
+  Apps tracked: 0
+  Publishers: 0
+
+=== End of Summary ===
+
+Saved to /Users/shadow/.openclaw/workspace/memory/st-daily/2026-04-09.md
+
+Scrape complete.
+
+=== Daily Summary ===
+=== Sensor Tower Daily Summary — 2026-04-09 ===
+Generated: 2026-04-09 11:01:19
+
+taxonomy_stats parse error: Expecting value: line 2 column 1 (char 1)
+
+ip_media parse error: Expecting value: line 2 column 1 (char 1)
+
+## Internal Entities
+  Apps tracked: 0
+  Publishers: 0
+
+=== End of Summary ===
+=== DONE: 2026-04-09 11:00:00 CST ===
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: ''
+=== Sensor Tower Daily Scrape ===
+Timestamp: 2026-04-10 11:00:00 CST
+Date: 2026-04-10
+Fetching game_taxonomy/stats...
+Fetching game_taxonomy/ip_media_type_hierarchy...
+Fetching unified/internal_entities...
+Generating daily summary...
+=== Sensor Tower Daily Summary — 2026-04-10 ===
+Generated: 2026-04-10 11:01:20
+
+taxonomy_stats parse error: Expecting value: line 2 column 1 (char 1)
+
+## IP Types by App Count
+  Animated Film: 265 apps
+  Animated Television: 731 apps
+  Anime / Manga: 1115 apps
+  Board Game: 288 apps
+  Books: 251 apps
+  Casino: 166 apps
+  Celebrity: 266 apps
+  Comics: 327 apps
+  Film: 238 apps
+  Food: 2 apps
+  Sports: 560 apps
+  Television: 424 apps
+  Toys: 439 apps
+  Videogame: 1994 apps
+
+## Internal Entities
+  Apps tracked: 0
+  Publishers: 0
+
+=== End of Summary ===
+
+Saved to /Users/shadow/.openclaw/workspace/memory/st-daily/2026-04-10.md
+
+Scrape complete.
+
+=== Daily Summary ===
+=== Sensor Tower Daily Summary — 2026-04-10 ===
+Generated: 2026-04-10 11:01:20
+
+taxonomy_stats parse error: Expecting value: line 2 column 1 (char 1)
+
+## IP Types by App Count
+  Animated Film: 265 apps
+  Animated Television: 731 apps
+  Anime / Manga: 1115 apps
+  Board Game: 288 apps
+  Books: 251 apps
+  Casino: 166 apps
+  Celebrity: 266 apps
+  Comics: 327 apps
+  Film: 238 apps
+  Food: 2 apps
+  Sports: 560 apps
+  Television: 424 apps
+  Toys: 439 apps
+  Videogame: 1994 apps
+
+## Internal Entities
+  Apps tracked: 0
+  Publishers: 0
+
+=== End of Summary ===
+=== DONE: 2026-04-10 11:00:00 CST ===
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: ''
+=== Sensor Tower Daily Scrape ===
+Timestamp: 2026-04-13 11:00:00 CST
+Date: 2026-04-13
+Fetching game_taxonomy/stats...
+Fetching game_taxonomy/ip_media_type_hierarchy...
+Fetching unified/internal_entities...
+Generating daily summary...
+=== Sensor Tower Daily Summary — 2026-04-13 ===
+Generated: 2026-04-13 11:00:05
+
+## Top Categories by Downloads (Unified)
+  5080: 2,141,032
+  6010: 1,287,283
+  1000010: 1,060,090
+  3000040: 1,033,053
+  2000040: 1,031,280
+  2000060: 846,059
+  6030: 739,589
+  5090: 735,821
+  1000: 722,019
+  3000030: 681,975
+  8025: 673,405
+  1001: 506,311
+  4000820: 359,177
+  1000060: 342,583
+  100104: 339,696
+
+## IP Types by App Count
+  Animated Film: 266 apps
+  Animated Television: 732 apps
+  Anime / Manga: 1115 apps
+  Board Game: 288 apps
+  Books: 251 apps
+  Casino: 166 apps
+  Celebrity: 266 apps
+  Comics: 327 apps
+  Film: 238 apps
+  Food: 2 apps
+  Sports: 560 apps
+  Television: 424 apps
+  Toys: 439 apps
+  Videogame: 1994 apps
+
+## Internal Entities
+  Apps tracked: 0
+  Publishers: 0
+
+=== End of Summary ===
+
+Saved to /Users/shadow/.openclaw/workspace/memory/st-daily/2026-04-13.md
+
+Scrape complete.
+
+=== Daily Summary ===
+=== Sensor Tower Daily Summary — 2026-04-13 ===
+Generated: 2026-04-13 11:00:05
+
+## Top Categories by Downloads (Unified)
+  5080: 2,141,032
+  6010: 1,287,283
+  1000010: 1,060,090
+  3000040: 1,033,053
+  2000040: 1,031,280
+  2000060: 846,059
+  6030: 739,589
+  5090: 735,821
+  1000: 722,019
+  3000030: 681,975
+  8025: 673,405
+  1001: 506,311
+  4000820: 359,177
+  1000060: 342,583
+  100104: 339,696
+
+## IP Types by App Count
+  Animated Film: 266 apps
+  Animated Television: 732 apps
+  Anime / Manga: 1115 apps
+  Board Game: 288 apps
+  Books: 251 apps
+  Casino: 166 apps
+  Celebrity: 266 apps
+  Comics: 327 apps
+  Film: 238 apps
+  Food: 2 apps
+  Sports: 560 apps
+  Television: 424 apps
+  Toys: 439 apps
+  Videogame: 1994 apps
+
+## Internal Entities
+  Apps tracked: 0
+  Publishers: 0
+
+=== End of Summary ===
+=== DONE: 2026-04-13 11:00:00 CST ===
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+FileNotFoundError: [Errno 2] No such file or directory: ''

@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>游戏发行方案生成器</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-2: #1c2128;
+      --border: #30363d;
+      --primary: #58a6ff;
+      --accent: #bc8cff;
+      --success: #3fb950;
+      --warning: #d29922;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --radius: 10px;
+      --radius-sm: 6px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+
+    /* ── Layout ── */
+    .app {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── Header ── */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* ── Tab Bar ── */
+    .tab-bar {
+      display: flex;
+      gap: 4px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 4px;
+      margin-bottom: 32px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 20px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { color: var(--text); background: var(--surface-2); }
+    .tab-btn.active {
+      color: var(--text);
+      background: var(--surface-2);
+      box-shadow: 0 0 0 1px var(--border), 0 2px 12px rgba(88,166,255,0.15);
+    }
+
+    /* ── Panels ── */
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    /* ── Form Grid ── */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 600px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Select / Dropdown ── */
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .select-wrap {
+      position: relative;
+    }
+    .select-wrap select {
+      width: 100%;
+      appearance: none;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 10px 38px 10px 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .select-wrap select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(88,166,255,0.15);
+    }
+    .select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 14px; top: 50%;
+      transform: translateY(-50%);
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid var(--muted);
+      pointer-events: none;
+    }
+
+    /* ── Textarea ── */
+    .textarea-wrap textarea {
+      width: 100%;
+      min-height: 120px;
+      max-height: 220px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 12px 14px;
+      resize: vertical;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      line-height: 1.7;
+    }
+    .textarea-wrap textarea::placeholder { color: var(--muted); }
+    .textarea-wrap textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(88,166,255,0.15);
+    }
+
+    /* ── Generate Button ── */
+    .btn-generate {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(88,166,255,0.25);
+      letter-spacing: 0.02em;
+    }
+    .btn-generate:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 28px rgba(88,166,255,0.4);
+    }
+    .btn-generate:active { transform: translateY(0) scale(0.99); }
+    .btn-generate.loading {
+      opacity: 0.8;
+      cursor: not-allowed;
+    }
+
+    /* ── Spinner ── */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    /* ── Output ── */
+    .output {
+      display: none;
+      margin-top: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output.visible { display: block; }
+    .output-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .output-header span {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--success);
+      font-family: 'Outfit', sans-serif;
+    }
+    .output-body {
+      padding: 20px;
+      background: var(--bg);
+    }
+    .output-body pre {
+      font-family: 'DM Sans', monospace;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text);
+      white-space: pre-wrap;
+    }
+
+    /* ── Tracking Page ── */
+    .track-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .track-header h2 { font-size: 1.3rem; }
+    .btn-new {
+      padding: 8px 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-new:hover { border-color: var(--primary); color: var(--primary); }
+
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .project-card:hover { border-color: var(--primary); box-shadow: 0 2px 12px rgba(88,166,255,0.1); }
+
+    .project-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .project-name { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 1.05rem; }
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-family: 'Outfit', sans-serif;
+    }
+    .badge-planned { background: rgba(88,166,255,0.15); color: var(--primary); }
+    .badge-progress { background: rgba(188,140,255,0.15); color: var(--accent); }
+    .badge-done { background: rgba(63,185,80,0.15); color: var(--success); }
+
+    .project-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ── Empty State ── */
+    .empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+    .empty-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      opacity: 0.4;
+    }
+    .empty h3 { font-family: 'Outfit', sans-serif; color: var(--text); margin-bottom: 8px; }
+
+    /* ── Detail Panel ── */
+    .detail-panel { display: none; }
+    .detail-panel.visible { display: block; }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      cursor: pointer;
+      margin-bottom: 20px;
+      padding: 0;
+    }
+    .back-btn:hover { text-decoration: underline; }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 20px 0 10px;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .timeline { list-style: none; }
+    .timeline li {
+      display: flex;
+      gap: 12px;
+      padding: 8px 0;
+      font-size: 0.88rem;
+      border-left: 2px solid var(--border);
+      margin-left: 8px;
+      padding-left: 16px;
+      position: relative;
+    }
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: -5px; top: 13px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .step-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .step-num {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      flex-shrink: 0;
+    }
+    .step-item.done .step-num { background: var(--success); border-color: var(--success); color: #fff; }
+    .step-item.done { color: var(--text); text-decoration: line-through; text-decoration-color: var(--muted); }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 100;
+      display: none;
+    }
+    .modal-overlay.visible { display: flex; }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      width: min(480px, 90vw);
+    }
+    .modal h3 { font-size: 1.1rem; margin-bottom: 18px; }
+    .modal .field { margin-bottom: 14px; }
+    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+    .btn-cancel {
+      padding: 8px 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-cancel:hover { color: var(--text); border-color: var(--text); }
+    .btn-submit {
+      padding: 8px 18px;
+      border: none;
+      border-radius: var(--radius-sm);
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-submit:hover { opacity: 0.85; }
+
+    /* ── Delete Project ── */
+    .btn-delete {
+      margin-top: 20px;
+      padding: 8px 18px;
+      border: 1px solid rgba(248,81,73,0.4);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: #f85149;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-delete:hover { background: rgba(248,81,73,0.1); }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+    /* ── Sub Tabs ── */
+    .sub-tab-btn {
+      flex-shrink: 0;
+      padding: 8px 16px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .sub-tab-btn:hover { color: var(--text); background: var(--surface-2); }
+    .sub-tab-btn.active { color: var(--text); background: var(--surface-2); box-shadow: 0 0 0 1px var(--border); }
+
+    /* ── Utility ── */
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>游戏发行方案生成器</h1>
+    <p>选择游戏配置，补充发行需求，快速生成完整发行策略</p>
+  </div>
+
+  <!-- Tab Bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="create">📋 生成方案</button>
+    <button class="tab-btn" data-tab="track">🚀 项目追踪</button>
+  </div>
+
+  <!-- ── Tab 1: Create ── -->
+  <div class="panel active" id="panel-create">
+
+    <div class="card">
+      <div class="card-title">游戏配置</div>
+      <div class="form-grid">
+        <div class="field">
+          <label>游戏类型</label>
+          <div class="select-wrap">
+            <select id="sel-type">
+              <option value="">— 选择类型 —</option>
+              <option>射击</option>
+              <option>动作竞技</option>
+              <option>卡牌</option>
+              <option>休闲</option>
+              <option>二次元</option>
+              <option>SLG</option>
+              <option>MMORPG</option>
+              <option>Roguelike</option>
+              <option>音游</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>视角</label>
+          <div class="select-wrap">
+            <select id="sel-perspective">
+              <option value="">— 选择视角 —</option>
+              <option>第一人称 (FPS)</option>
+              <option>第三人称 (TPS)</option>
+              <option>Top-down 俯视角</option>
+              <option>横版卷轴</option>
+              <option>2D 等距视角</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>参考竞品</label>
+          <div class="select-wrap">
+            <select id="sel-competitor">
+              <option value="">— 选择竞品 —</option>
+              <option value="无">无（全新赛道）</option>
+              <option>PUBG Mobile</option>
+              <option>Apex Legends Mobile</option>
+              <option>Call of Duty: Mobile</option>
+              <option>Genshin Impact</option>
+              <option>Honkai: Star Rail</option>
+              <option>Clash Royale</option>
+              <option>Brawl Stars</option>
+              <option>Clash of Clans</option>
+              <option>Arknights</option>
+              <option>Genshin Impact</option>
+              <option>Mobile Legends</option>
+              <option>League of Legends: Wild Rift</option>
+              <option>Clash Mini</option>
+              <option>Valorant</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>发行阶段</label>
+          <div class="select-wrap">
+            <select id="sel-stage">
+              <option value="">— 选择阶段 —</option>
+              <option>首次发行</option>
+              <option>版本更新</option>
+              <option>测试期（封闭/限量）</option>
+              <option>大版本迭代</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">补充说明</div>
+      <div class="textarea-wrap">
+        <textarea id="chat-input" placeholder="可以说一些自己的要求，比如：&#10;• 目标市场：日本 / 东南亚 / 全球&#10;• 预算范围：低 / 中 / 高&#10;• 差异化方向：题材 / 玩法微创新 / 美术风格&#10;• 是否有IP授权&#10;• 其他特殊需求..."></textarea>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:12px; flex-wrap:wrap">
+      <button class="btn-generate" id="btn-generate" onclick="handleGenerate()">
+        ⚡ 生成预览方案
+      </button>
+      <button class="btn-generate" id="btn-generate-ai" onclick="handleGenerateAI()" style="background: linear-gradient(135deg, #3fb950, #58a6ff); box-shadow: 0 4px 20px rgba(63,185,80,0.25);">
+        ✨ 使用 AI Skill 分析
+      </button>
+      <button class="btn-generate" id="btn-download-pptx-main" onclick="downloadPPTX()" style="background: linear-gradient(135deg, #f0883e, #bc8cff); box-shadow: 0 4px 20px rgba(240,136,62,0.25);">
+        📥 下载 PPTX
+      </button>
+    </div>
+
+    <div class="output" id="output">
+      <div class="output-header" id="output-header">
+        <span id="output-status">✓ 方案已生成</span>
+        <button class="back-btn" id="btn-copy" onclick="copyPrompt()" style="margin:0; color: var(--success); font-size: 0.82rem; display:none">📋 复制 Prompt</button>
+        <button class="back-btn" onclick="saveToTracking()" style="margin:0; color: var(--primary); font-size: 0.82rem;">+ 存入追踪</button>
+        <button class="back-btn" id="btn-download-pptx-output" onclick="downloadPPTX()" style="margin:0; color: #f0883e; font-size: 0.82rem; display:none">📥 下载 PPTX</button>
+      </div>
+      <div class="output-body">
+        <pre id="output-content"></pre>
+        <div id="ai-hint" style="display:none; margin-top:12px; padding:12px; background:var(--surface-2); border-radius:8px; font-size:0.82rem; color:var(--muted); line-height:1.7">
+          <span style="color:var(--primary); font-weight:600">💡 AI 分析模式</span><br/>
+          上方 Prompt 已生成，请复制并粘贴到 <strong>Discord #ops 频道</strong>发送给 AI，AI 将基于 game-publishing-analysis skill 生成完整发行方案。<br/>
+          收到方案后，可将内容粘贴回「补充说明」并重新生成，或直接存入项目追踪。
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Tab 2: Track ── -->
+  <div class="panel" id="panel-track">
+    <div class="track-header" id="track-header" style="display:none">
+      <h2>我的项目</h2>
+      <button class="btn-new" onclick="openModal()">+ 新建项目</button>
+    </div>
+
+    <!-- Project List -->
+    <div class="project-list" id="project-list"></div>
+
+    <!-- Empty State -->
+    <div class="empty" id="empty-state">
+      <div class="empty-icon">📂</div>
+      <h3>暂无项目</h3>
+      <p>在「生成方案」页填写配置并点击生成，<br>可将方案保存到这里追踪进度</p>
+    </div>
+
+    <!-- Detail Panel -->
+    <div class="detail-panel" id="detail-panel">
+      <button class="back-btn" onclick="showList()">← 返回列表</button>
+      <div id="detail-content"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h3>新建项目</h3>
+    <div class="field">
+      <label>项目名称</label>
+      <div class="select-wrap">
+        <input type="text" id="new-name" placeholder="例如：Project X — 首發版本" style="width:100%; background:var(--surface-2); border:1px solid var(--border); border-radius:6px; color:var(--text); font-family:'DM Sans',sans-serif; font-size:0.9rem; padding:10px 14px;" />
+      </div>
+    </div>
+    <div class="field" style="margin-top:14px">
+      <label>状态</label>
+      <div class="select-wrap">
+        <select id="new-status" style="width:100%">
+          <option>planned</option>
+          <option>in-progress</option>
+          <option>completed</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">取消</button>
+      <button class="btn-submit" onclick="createProject()">创建</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── State ──
+  let projects = JSON.parse(localStorage.getItem('publishing_projects') || '[]');
+  let lastGenerated = null;
+
+  // ── Tab Switch ──
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // ── Generate ──
+  function handleGenerate() {
+    const btn = document.getElementById('btn-generate');
+    if (btn.classList.contains('loading')) return;
+
+    const type = document.getElementById('sel-type').value;
+    const perspective = document.getElementById('sel-perspective').value;
+    const competitor = document.getElementById('sel-competitor').value;
+    const stage = document.getElementById('sel-stage').value;
+    const note = document.getElementById('chat-input').value.trim();
+
+    if (!type && !note) {
+      alert('请选择游戏类型或补充说明至少填一项');
+      return;
+    }
+
+    btn.classList.add('loading');
+    btn.innerHTML = '<span class="spinner"></span>生成中...';
+    document.getElementById('output-status').textContent = '✓ 预览方案已生成';
+    document.getElementById('btn-copy').style.display = 'none';
+    document.getElementById('ai-hint').style.display = 'none';
+    currentPrompt = '';
+
+    setTimeout(() => {
+      const plan = buildPlan({ type, perspective, competitor, stage, note });
+      document.getElementById('output-content').textContent = plan;
+      document.getElementById('output').classList.add('visible');
+      lastGenerated = { type, perspective, competitor, stage, note, plan, date: new Date().toISOString() };
+
+      btn.classList.remove('loading');
+      btn.innerHTML = '⚡ 重新生成方案';
+      // Show PPTX download button when content exists
+      document.getElementById('btn-download-pptx-main').style.display = 'inline-flex';
+      document.getElementById('btn-download-pptx-output').style.display = 'inline-flex';
+    }, 1800);
+  }
+
+  function buildPlan(cfg) {
+    const competitorInfo = cfg.competitor && cfg.competitor !== '无'
+      ? `参考竞品：「${cfg.competitor}」，需分析其核心数据（下载量、收入、用户评价）并找到差异化空间。`
+      : '全新赛道，优先聚焦目标用户的核心诉求，建立品类认知。';
+
+    const stageMap = {
+      '首次发行':     { title: '首次发行节奏', content: '预热期（社媒铺垫+预约）→ 限量测试（封闭Beta）→ 正式公测爆发→ 长线运营维护' },
+      '版本更新':     { title: '版本更新节奏', content: '大版本预热（悬念物料）→ 直播/公告 → 限时活动回归 → 数据复盘' },
+      '测试期（封闭/限量）': { title: '测试期节奏', content: '封闭测试（定向招募）→ 数据回收与分析 → 调优迭代 → 扩大测试或公测' },
+      '大版本迭代':   { title: '大版本迭代节奏', content: '内容预埋（版本悬念）→ 宣传爆发 → 新版本上线 → 玩家社区维护' },
+    };
+    const stageData = stageMap[cfg.stage] || stageMap['首次发行'];
+
+    const marketMap = cfg.note.match(/目标市场[：:]\s*([^\n]+)/);
+    const budgetMap = cfg.note.match(/预算[：:]\s*([^\n]+)/);
+    const market = marketMap ? marketMap[1].trim() : '东南亚 + 欧美';
+    const budget = budgetMap ? budgetMap[1].trim() : '中等预算';
+
+    return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ 游戏发行方案
+ 生成时间：${new Date().toLocaleString('zh-CN')}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【游戏配置】
+• 类型：${cfg.type || '未指定'}
+• 视角：${cfg.perspective || '未指定'}
+• 参考竞品：${cfg.competitor || '无'}
+• 发行阶段：${cfg.stage || '未指定'}
+
+【发行节奏 — ${stageData.title}】
+${stageData.content}
+
+【目标市场】
+${market}
+
+【营销预算参考】
+${budget}
+
+【核心策略】
+${competitorInfo}
+
+【上手点建议】
+1. 聚焦核心玩法差异化（题材？美术风格？玩法微创新？）
+2. 目标用户画像：${cfg.type ? TYPE_ICP[cfg.type] || '核心玩家群体' : '核心玩家群体'}
+3. 上线节奏建议：${stageData.content.split('→')[0].trim()}
+
+【数据预估参考】（基于同类产品表现估算）
+• 自然下载量：乐观 / 中性 / 保守
+• 预期首月流水：需结合买量预算测算
+• 营销花费：${budget}区间
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`;
+  }
+
+  // ── AI Skill Integration ──
+  function buildPrompt(cfg) {
+    const stageMap = {
+      '首次发行': '首次发行',
+      '版本更新': '版本更新',
+      '测试期（封闭/限量）': '测试期（封闭/限量）',
+      '大版本迭代': '大版本迭代',
+    };
+
+    let prompt = `【游戏发行分析请求】\n\n`;
+    prompt += `## 游戏基本信息\n`;
+    prompt += `- **游戏类型**：${cfg.type || '未指定'}\n`;
+    prompt += `- **视角**：${cfg.perspective || '未指定'}\n`;
+    prompt += `- **参考竞品**：${cfg.competitor || '无（全新赛道）'}\n`;
+    prompt += `- **发行阶段**：${stageMap[cfg.stage] || '首次发行'}\n\n`;
+
+    if (cfg.note) {
+      prompt += `## 补充说明\n${cfg.note}\n\n`;
+    }
+
+    prompt += `请基于 game-publishing-analysis skill 的标准流程，生成完整的游戏发行方案，包含：\n1. 游戏品类分析\n2. 目标用户规模（按市场拆分）\n3. 竞品分析（"大成"定义：年收入>$50M或下载量>3M）\n4. 发行策略（线上广告、KOL、PR、ASO、上线节奏）\n5. 数据预估\n\n`;
+    prompt += `**重点**：MOBA品类用户是主要投放目标（实证结论），请在方案中突出这一点。`;
+
+    return prompt;
+  }
+
+  let currentPrompt = '';
+
+  function handleGenerateAI() {
+    const btn = document.getElementById('btn-generate-ai');
+    if (btn.classList.contains('loading')) return;
+
+    const type = document.getElementById('sel-type').value;
+    const perspective = document.getElementById('sel-perspective').value;
+    const competitor = document.getElementById('sel-competitor').value;
+    const stage = document.getElementById('sel-stage').value;
+    const note = document.getElementById('chat-input').value.trim();
+
+    if (!type && !note) {
+      alert('请选择游戏类型或补充说明至少填一项');
+      return;
+    }
+
+    btn.classList.add('loading');
+    btn.innerHTML = '<span class="spinner"></span>生成 Prompt...';
+
+    setTimeout(() => {
+      const prompt = buildPrompt({ type, perspective, competitor, stage, note });
+      currentPrompt = prompt;
+
+      document.getElementById('output-status').textContent = '✓ Prompt 已生成';
+      document.getElementById('output-content').textContent = prompt;
+      document.getElementById('output').classList.add('visible');
+      document.getElementById('btn-copy').style.display = 'inline-flex';
+      document.getElementById('ai-hint').style.display = 'block';
+
+      lastGenerated = { type, perspective, competitor, stage, note, plan: prompt, date: new Date().toISOString() };
+
+      btn.classList.remove('loading');
+      btn.innerHTML = '✨ 重新生成 Prompt';
+      // AI mode = prompt only, no plan text, so PPTX button stays hidden
+    }, 800);
+  }
+
+  function copyPrompt() {
+    if (!currentPrompt) return;
+    navigator.clipboard.writeText(currentPrompt).then(() => {
+      const btn = document.getElementById('btn-copy');
+      const original = btn.textContent;
+      btn.textContent = '✓ 已复制！';
+      btn.style.color = 'var(--success)';
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.color = 'var(--success)';
+      }, 1500);
+    }).catch(() => {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = currentPrompt;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      alert('Prompt 已复制，请粘贴到 Discord #ops 频道');
+    });
+  }
+
+  // ── PPTX Generation ──
+  function downloadPPTX(planText) {
+    const text = planText || document.getElementById('output-content').textContent;
+    if (!text || text.trim() === '') {
+      alert('先生成方案内容后再下载 PPTX');
+      return;
+    }
+    generateAndDownloadPPTX(text, '游戏发行方案');
+  }
+
+  function downloadProjectPPTX(id) {
+    const p = projects.find(x => x.id === id);
+    if (!p || !p.plan) {
+      alert('该项目暂无方案内容');
+      return;
+    }
+    generateAndDownloadPPTX(p.plan, p.name);
+  }
+
+  function generateAndDownloadPPTX(planText, title) {
+    if (typeof pptxgen === 'undefined') {
+      alert('PPTX 生成库加载中，请稍后重试或刷新页面');
+      return;
+    }
+
+    let pres = new pptxgen();
+    pres.layout = 'LAYOUT_16x9';
+    pres.title = title || '游戏发行方案';
+
+    const DARK_BG = '0d1117';
+    const SURFACE = '161b22';
+    const BORDER = '30363d';
+    const PRIMARY = '58a6ff';
+    const ACCENT = 'bc8cff';
+    const SUCCESS = '3fb950';
+    const MUTED = '8b949e';
+    const TEXT = 'e6edf3';
+
+    // ── Slide 1: Title ──
+    let slide1 = pres.addSlide();
+    slide1.background = { color: DARK_BG };
+    slide1.addText(title || '游戏发行方案', {
+      x: 0.5, y: 2.0, w: 9, h: 1.2,
+      fontSize: 40, bold: true, color: TEXT,
+      fontFace: 'Outfit', align: 'center'
+    });
+    slide1.addText('Generated by Publishing Tool', {
+      x: 0.5, y: 3.3, w: 9, h: 0.5,
+      fontSize: 14, color: MUTED, fontFace: 'DM Sans', align: 'center'
+    });
+    slide1.addShape(pres.shapes.RECTANGLE, {
+      x: 3.5, y: 4.0, w: 3, h: 0.05,
+      fill: { color: PRIMARY }
+    });
+
+    // ── Slide 2: Game Config ──
+    let slide2 = pres.addSlide();
+    slide2.background = { color: DARK_BG };
+    slide2.addText('游戏配置', {
+      x: 0.5, y: 0.3, w: 9, h: 0.7,
+      fontSize: 26, bold: true, color: PRIMARY, fontFace: 'Outfit'
+    });
+    slide2.addShape(pres.shapes.RECTANGLE, {
+      x: 0.5, y: 0.95, w: 1.5, h: 0.04,
+      fill: { color: ACCENT }
+    });
+    // Extract config from plan text
+    const configLines = [];
+    planText.split('\n').forEach(line => {
+      if (line.includes('类型') || line.includes('视角') || line.includes('竞品') || line.includes('发行')) {
+        configLines.push(line.trim().replace(/^【|】$/g, '').replace(/^•\s*/, ''));
+      }
+    });
+    slide2.addText(configLines.slice(0, 6).join('\n'), {
+      x: 0.5, y: 1.3, w: 9, h: 3.5,
+      fontSize: 16, color: TEXT, fontFace: 'DM Sans',
+      lineSpaceMult: 1.8
+    });
+
+    // ── Slide 3: Strategy ──
+    let slide3 = pres.addSlide();
+    slide3.background = { color: DARK_BG };
+    slide3.addText('核心策略', {
+      x: 0.5, y: 0.3, w: 9, h: 0.7,
+      fontSize: 26, bold: true, color: PRIMARY, fontFace: 'Outfit'
+    });
+    slide3.addShape(pres.shapes.RECTANGLE, {
+      x: 0.5, y: 0.95, w: 1.5, h: 0.04,
+      fill: { color: ACCENT }
+    });
+    const strategyLines = [];
+    let inStrategy = false;
+    planText.split('\n').forEach(line => {
+      if (line.includes('核心策略')) inStrategy = true;
+      if (inStrategy && line.trim() && !line.includes('核心策略') && line.startsWith('•')) {
+        strategyLines.push(line.trim());
+      }
+      if (strategyLines.length >= 5) inStrategy = false;
+    });
+    slide3.addText(strategyLines.slice(0, 5).join('\n') || planText.substring(0, 500), {
+      x: 0.5, y: 1.3, w: 9, h: 3.8,
+      fontSize: 15, color: TEXT, fontFace: 'DM Sans',
+      lineSpaceMult: 1.6
+    });
+
+    // ── Slide 4: Market & Budget ──
+    let slide4 = pres.addSlide();
+    slide4.background = { color: DARK_BG };
+    slide4.addText('市场与预算', {
+      x: 0.5, y: 0.3, w: 9, h: 0.7,
+      fontSize: 26, bold: true, color: SUCCESS, fontFace: 'Outfit'
+    });
+    slide4.addShape(pres.shapes.RECTANGLE, {
+      x: 0.5, y: 0.95, w: 1.5, h: 0.04,
+      fill: { color: SUCCESS }
+    });
+    const marketBudgetLines = [];
+    planText.split('\n').forEach(line => {
+      if (line.includes('目标市场') || line.includes('预算') || line.includes('营销')) {
+        marketBudgetLines.push(line.trim());
+      }
+    });
+    slide4.addText(marketBudgetLines.slice(0, 8).join('\n') || '目标市场：东南亚 + 欧美\n营销预算：中等预算', {
+      x: 0.5, y: 1.3, w: 9, h: 3.8,
+      fontSize: 16, color: TEXT, fontFace: 'DM Sans',
+      lineSpaceMult: 1.8
+    });
+
+    // ── Slide 5: Action Items ──
+    let slide5 = pres.addSlide();
+    slide5.background = { color: DARK_BG };
+    slide5.addText('发行节奏建议', {
+      x: 0.5, y: 0.3, w: 9, h: 0.7,
+      fontSize: 26, bold: true, color: ACCENT, fontFace: 'Outfit'
+    });
+    slide5.addShape(pres.shapes.RECTANGLE, {
+      x: 0.5, y: 0.95, w: 1.5, h: 0.04,
+      fill: { color: ACCENT }
+    });
+    const rhythmLines = [];
+    planText.split('\n').forEach(line => {
+      if (line.includes('节奏') || line.includes('上手') || line.includes('建议') || line.includes('上线')) {
+        rhythmLines.push(line.trim());
+      }
+    });
+    slide5.addText(rhythmLines.slice(0, 6).join('\n') || '预热期 → 限量测试 → 正式公测 → 长线运营', {
+      x: 0.5, y: 1.3, w: 9, h: 3.8,
+      fontSize: 15, color: TEXT, fontFace: 'DM Sans',
+      lineSpaceMult: 1.8
+    });
+
+    // ── Download ──
+    pres.writeFile({ fileName: `${(title || '游戏发行方案').replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '_')}.pptx` })
+      .then(() => console.log('PPTX downloaded successfully'))
+      .catch(err => alert('下载失败: ' + err.message));
+  }
+
+  const TYPE_ICP = {
+    '射击': '18-30岁硬核FPS用户，男性为主',
+    '动作竞技': '15-25岁竞技玩家，偏好快节奏对抗',
+    '卡牌': '18-35岁策略玩家，付费意愿中等',
+    '休闲': '25-40岁泛用户，女性偏多',
+    '二次元': '16-28岁动漫爱好者，女性用户占比高',
+    'SLG': '28-45岁中青年，付费能力强',
+    'MMORPG': '18-35岁MMO核心用户，社交驱动',
+    'Roguelike': '20-30岁独立游戏爱好者，硬核',
+    '音游': '16-26岁音乐游戏用户，粘性高',
+  };
+
+  // ── Save to Tracking ──
+  function saveToTracking() {
+    if (!lastGenerated) return;
+    document.getElementById('modal').classList.add('visible');
+    document.getElementById('new-name').value =
+      `${lastGenerated.type || '新项目'} — ${lastGenerated.stage || '发行'}`;
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('visible');
+  }
+
+  function createProject() {
+    const name = document.getElementById('new-name').value.trim();
+    const status = document.getElementById('new-status').value;
+    if (!name) { alert('请输入项目名称'); return; }
+
+    const project = {
+      id: Date.now(),
+      name,
+      status,
+      config: lastGenerated ? { type: lastGenerated.type, perspective: lastGenerated.perspective, competitor: lastGenerated.competitor, stage: lastGenerated.stage } : {},
+      plan: lastGenerated ? lastGenerated.plan : '',
+      feedback: [],
+      steps: [
+        { label: '市场调研与竞品分析', done: false },
+        { label: '发行节奏规划', done: false },
+        { label: 'KOL / 社媒铺垫', done: false },
+        { label: '测试期数据验证', done: false },
+        { label: '公测爆发与买量', done: false },
+        { label: '长线运营维护', done: false },
+      ],
+      createdAt: new Date().toISOString(),
+    };
+
+    projects.unshift(project);
+    localStorage.setItem('publishing_projects', JSON.stringify(projects));
+    closeModal();
+    renderProjectList();
+    // Switch to track tab
+    document.querySelector('[data-tab="track"]').click();
+  }
+
+  // ── Render Project List ──
+  function renderProjectList() {
+    const list = document.getElementById('project-list');
+    const empty = document.getElementById('empty-state');
+    const header = document.getElementById('track-header');
+
+    if (projects.length === 0) {
+      list.innerHTML = '';
+      empty.style.display = 'block';
+      header.style.display = 'none';
+      return;
+    }
+
+    empty.style.display = 'none';
+    header.style.display = 'flex';
+
+    list.innerHTML = projects.map(p => `
+      <div class="project-card" onclick="showDetail(${p.id})">
+        <div class="project-card-top">
+          <span class="project-name">${p.name}</span>
+          <span class="badge badge-${p.status === 'planned' ? 'planned' : p.status === 'in-progress' ? 'progress' : 'done'}">${
+            p.status === 'planned' ? '计划中' : p.status === 'in-progress' ? '进行中' : '已完成'
+          }</span>
+        </div>
+        <div class="project-meta">
+          <span>📅 ${new Date(p.createdAt).toLocaleDateString('zh-CN')}</span>
+          <span>📝 ${p.steps.filter(s=>s.done).length}/${p.steps.length} 步骤完成</span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // ── Show Detail ──
+  function showDetail(id) {
+    const p = projects.find(x => x.id === id);
+    if (!p) return;
+
+    document.getElementById('project-list').parentElement.querySelector('.track-header')?.remove;
+    document.getElementById('panel-track').querySelector('.track-header').style.display = 'none';
+
+    document.getElementById('detail-panel').classList.add('visible');
+    document.getElementById('project-list').style.display = 'none';
+    document.getElementById('empty-state').style.display = 'none';
+
+    // Mock execution data
+    const mockOM = {
+      totalSpend: '$123,500',
+      installs: '485,000',
+      registrations: '362,000',
+      cpr: '$0.34',
+      cpi: '$0.25',
+      r2: '41%',
+      r7: '11%',
+      organic: '38.5%',
+      channels: [
+        { name: 'Google UAC', spend: '$98,800', pct: '80%', cpr: '$0.31' },
+        { name: 'TikTok', spend: '$18,500', pct: '15%', cpr: '$0.48' },
+        { name: 'Apple Search Ads', spend: '$6,200', pct: '5%', cpr: '$0.89' }
+      ]
+    };
+
+    const mockCommunity = {
+      totalFollowers: '128,500',
+      totalLikes: '2.3M',
+      totalComments: '45,200',
+      posts: [
+        { platform: 'Instagram', followers: '45,200', likes: '890K', comments: '12,400', engagement: '3.8%' },
+        { platform: 'TikTok', followers: '52,800', likes: '1.1M', comments: '21,500', engagement: '5.2%' },
+        { platform: 'Discord', members: '28,500', likes: '310K', comments: '11,300', engagement: '4.1%' },
+        { platform: 'Facebook', followers: '2,000', likes: '18K', comments: '1,200', engagement: '2.1%' }
+      ]
+    };
+
+    const mockResearch = {
+      markets: [
+        { name: 'Indonesia', awareness: '68%', intent: '42%', barriers: '服务器稳定性、匹配时间过长' },
+        { name: 'Brazil', awareness: '55%', intent: '38%', barriers: '语言、本地化不足' },
+        { name: 'Vietnam', awareness: '45%', intent: '35%', barriers: '知名度低、竞品太强' }
+      ]
+    };
+
+    const mockReviews = [
+      { stars: 5, text: 'Zipline 系统太酷了，机动性拉满，团战体验很爽！', region: 'ID', date: '2026-03-28' },
+      { stars: 4, text: '画面很精美，但服务器有时候会卡，希望快点修复', region: 'BR', date: '2026-03-25' },
+      { stars: 3, text: '玩法不错，但英雄太少了，希望能多出几个', region: 'VN', date: '2026-03-20' },
+      { stars: 2, text: '登录不上，闪退，修复了好几次了', region: 'ID', date: '2026-03-18' },
+      { stars: 1, text: 'Rank 匹配系统有 bug，同段位但数字不同就匹配不到', region: 'PH', date: '2026-03-15' }
+    ];
+
+    const feedbackHTML = p.feedback.length
+      ? `<ul class="timeline">${p.feedback.map(f => `<li><strong>${f.time}</strong> — ${f.text}</li>`).join('')}</ul>`
+      : '<p style="color:var(--muted); font-size:0.88rem">暂无反馈记录</p>';
+
+    const stepsHTML = p.steps.map((s, i) =>
+      `<div class="step-item ${s.done ? 'done' : ''}">
+        <span class="step-num">${s.done ? '✓' : i+1}</span>
+        ${s.label}
+      </div>`
+    ).join('');
+
+    // OM tab content
+    const omHTML = `
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-bottom:16px">
+        <div style="background:var(--surface-2); padding:14px; border-radius:8px; text-align:center">
+          <div style="font-size:1.4rem; font-weight:700; color:var(--primary)">${mockOM.totalSpend}</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px">总花费</div>
+        </div>
+        <div style="background:var(--surface-2); padding:14px; border-radius:8px; text-align:center">
+          <div style="font-size:1.4rem; font-weight:700; color:var(--success)">${mockOM.registrations}</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px">注册用户</div>
+        </div>
+        <div style="background:var(--surface-2); padding:14px; border-radius:8px; text-align:center">
+          <div style="font-size:1.4rem; font-weight:700; color:#f0883e">${mockOM.cpr}</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px">CPR</div>
+        </div>
+        <div style="background:var(--surface-2); padding:14px; border-radius:8px; text-align:center">
+          <div style="font-size:1.4rem; font-weight:700; color:var(--primary)">${mockOM.r2}</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px">D2 留存</div>
+        </div>
+        <div style="background:var(--surface-2); padding:14px; border-radius:8px; text-align:center">
+          <div style="font-size:1.4rem; font-weight:700; color:var(--accent)">${mockOM.r7}</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px">D7 留存</div>
+        </div>
+        <div style="background:var(--surface-2); padding:14px; border-radius:8px; text-align:center">
+          <div style="font-size:1.4rem; font-weight:700; color:var(--success)">${mockOM.organic}</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px">自然占比</div>
+        </div>
+      </div>
+      <div style="font-size:0.78rem; color:var(--muted); margin-bottom:8px">渠道分布</div>
+      <table style="width:100%; font-size:0.82rem; border-collapse:collapse">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left; padding:8px 0; color:var(--muted)">渠道</th>
+            <th style="text-align:right; padding:8px 0; color:var(--muted)">花费</th>
+            <th style="text-align:right; padding:8px 0; color:var(--muted)">占比</th>
+            <th style="text-align:right; padding:8px 0; color:var(--muted)">CPR</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${mockOM.channels.map(ch => `
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 0">${ch.name}</td>
+              <td style="text-align:right; padding:8px 0">${ch.spend}</td>
+              <td style="text-align:right; padding:8px 0">${ch.pct}</td>
+              <td style="text-align:right; padding:8px 0">${ch.cpr}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>`;
+
+    // Community tab content
+    const communityHTML = `
+      <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-bottom:16px">
+        <div style="background:var(--surface-2); padding:14px; border-radius:8px; text-align:center">
+          <div style="font-size:1.4rem; font-weight:700; color:var(--primary)">${mockCommunity.totalFollowers}</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px">总粉丝</div>
+        </div>
+        <div style="background:var(--surface-2); padding:14px; border-radius:8px; text-align:center">
+          <div style="font-size:1.4rem; font-weight:700; color:var(--success)">${mockCommunity.totalLikes}</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px">总点赞</div>
+        </div>
+        <div style="background:var(--surface-2); padding:14px; border-radius:8px; text-align:center">
+          <div style="font-size:1.4rem; font-weight:700; color:var(--accent)">${mockCommunity.totalComments}</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-top:4px">总评论</div>
+        </div>
+      </div>
+      <table style="width:100%; font-size:0.82rem; border-collapse:collapse">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left; padding:8px 0; color:var(--muted)">平台</th>
+            <th style="text-align:right; padding:8px 0; color:var(--muted)">粉丝</th>
+            <th style="text-align:right; padding:8px 0; color:var(--muted)">点赞</th>
+            <th style="text-align:right; padding:8px 0; color:var(--muted)">评论</th>
+            <th style="text-align:right; padding:8px 0; color:var(--muted)">互动率</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${mockCommunity.posts.map(post => `
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 0">${post.platform}</td>
+              <td style="text-align:right; padding:8px 0">${post.followers}</td>
+              <td style="text-align:right; padding:8px 0">${post.likes}</td>
+              <td style="text-align:right; padding:8px 0">${post.comments}</td>
+              <td style="text-align:right; padding:8px 0; color:var(--success)">${post.engagement}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>`;
+
+    // Research tab content
+    const researchHTML = `
+      <table style="width:100%; font-size:0.82rem; border-collapse:collapse">
+        <thead>
+          <tr style="border-bottom:1px solid var(--border)">
+            <th style="text-align:left; padding:8px 0; color:var(--muted)">市场</th>
+            <th style="text-align:right; padding:8px 0; color:var(--muted)">品牌认知度</th>
+            <th style="text-align:right; padding:8px 0; color:var(--muted)">下载意向</th>
+            <th style="text-align:left; padding:8px 0; color:var(--muted)">主要障碍</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${mockResearch.markets.map(m => `
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 0">${m.name}</td>
+              <td style="text-align:right; padding:8px 0; color:var(--primary)">${m.awareness}</td>
+              <td style="text-align:right; padding:8px 0; color:var(--success)">${m.intent}</td>
+              <td style="padding:8px 0; color:var(--muted)">${m.barriers}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>`;
+
+    // Reviews tab content
+    const reviewsHTML = mockReviews.map(r => `
+      <div style="background:var(--surface-2); padding:14px; border-radius:8px; margin-bottom:10px">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px">
+          <span style="color:${r.stars >= 4 ? 'var(--success)' : r.stars >= 3 ? '#d29922' : '#f85149'}; font-size:0.85rem">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</span>
+          <span style="color:var(--muted); font-size:0.75rem">${r.region} · ${r.date}</span>
+        </div>
+        <p style="font-size:0.88rem; color:var(--text); margin:0">${r.text}</p>
+      </div>
+    `).join('');
+
+    document.getElementById('detail-content').innerHTML = `
+      <button class="back-btn" onclick="showList()" style="margin-bottom:16px">← 返回列表</button>
+      <h2 style="font-size:1.3rem; margin-bottom:4px">${p.name}</h2>
+      <p style="color:var(--muted); font-size:0.85rem; margin-bottom:16px">
+        ${p.config.type ? p.config.type + ' · ' : ''}${p.config.stage || ''} · ${p.status === 'planned' ? '计划中' : p.status === 'in-progress' ? '进行中' : '已完成'}
+        · <span style="color:var(--primary)">📥 PPTX 已就绪</span>
+      </p>
+
+      <div style="display:flex; gap:4px; background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:4px; margin-bottom:20px; overflow-x:auto">
+        <button class="sub-tab-btn active" onclick="showDetailTab('plan', ${p.id})" data-tab="plan">📋 方案</button>
+        <button class="sub-tab-btn" onclick="showDetailTab('om', ${p.id})" data-tab="om">📊 OM 成效</button>
+        <button class="sub-tab-btn" onclick="showDetailTab('community', ${p.id})" data-tab="community">💬 社区</button>
+        <button class="sub-tab-btn" onclick="showDetailTab('research', ${p.id})" data-tab="research">🔍 调研</button>
+        <button class="sub-tab-btn" onclick="showDetailTab('reviews', ${p.id})" data-tab="reviews">⭐ 评价</button>
+      </div>
+
+      <div id="detail-tab-plan"><pre style="font-size:0.82rem; line-height:1.8; color:var(--muted); background:var(--surface); padding:14px; border-radius:8px; white-space:pre-wrap">${p.plan || '暂无方案内容'}</pre></div>
+      <div id="detail-tab-om" style="display:none">${omHTML}</div>
+      <div id="detail-tab-community" style="display:none">${communityHTML}</div>
+      <div id="detail-tab-research" style="display:none">${researchHTML}</div>
+      <div id="detail-tab-reviews" style="display:none">${reviewsHTML}</div>
+
+      <div class="section-label" style="margin-top:20px">反馈记录</div>
+      ${feedbackHTML}
+
+      <div class="section-label">下一步计划</div>
+      <div class="step-list">${stepsHTML}</div>
+
+      <div style="display:flex; gap:12px; margin-top:16px">
+        <button class="btn-delete" onclick="downloadProjectPPTX(${p.id})" style="border-color:rgba(240,136,62,0.4); color:#f0883e">📥 下载本项目 PPTX</button>
+        <button class="btn-delete" onclick="deleteProject(${p.id})">删除项目</button>
+      </div>
+    `;
+  }
+
+  function showDetailTab(tab, id) {
+    document.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+    const tabs = ['plan','om','community','research','reviews'];
+    tabs.forEach(t => {
+      const el = document.getElementById('detail-tab-' + t);
+      if (el) el.style.display = t === tab ? 'block' : 'none';
+    });
+  }
+
+  function showList() {
+    document.getElementById('detail-panel').classList.remove('visible');
+    document.getElementById('project-list').style.display = '';
+    document.getElementById('panel-track').querySelector('.track-header').style.display = projects.length > 0 ? 'flex' : 'none';
+    if (projects.length === 0) document.getElementById('empty-state').style.display = 'block';
+  }
+
+  function deleteProject(id) {
+    if (!confirm('确定删除该项目？')) return;
+    projects = projects.filter(p => p.id !== id);
+    localStorage.setItem('publishing_projects', JSON.stringify(projects));
+    showList();
+    renderProjectList();
+  }
+
+  // Init
+  renderProjectList();
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+=== Slide 1 ===
+GOLD AND GLORY | 7月大版本发行方案 v2 | Arena · PVE · 3C升级 · 留存为核心  |  2026年4月 | Confidential — Internal Use Only
+
+=== Slide 2 ===
+区域差异化宣传策略 | 🌏 ID/VN（老市场） | 口径 | 7月大版本上线，所有人一起回归 | 受众 | 新玩家：上手容易 | 老玩家：Arena+PVE内容更新 | Key Message | 版本回来了，这次不一样 | 🌎 CO/MX/AR/CL（南北开放） | 口径 | 北部（CO/MX）+ 南部（AR/CL）同步开放 | 受众 | 北部回归玩家 + 南部新玩家 | Key Message | 终于等到你！南北全面开放 | 🇧🇷 巴西（新市场首次） | 口径 | 服务器回来了，欢迎老玩家回归，新玩家加入 | 受众 | 老玩家召回为主，新玩家补充 | Key Message | 服务器回来了，你还在吗？ | ⚠ 测试阶段，预算有限。KOC为主，KOL按需。
+
+=== Slide 3 ===
+推广时间轴 | 全部目标市场7月同步上线（ID/VN/MX + AR/BR/CL） | 4月 | 停服维护 | 评分改善（3.7→3.8） · 本地化启动 · KOC名单确认 | 5月 | 预热期 | KOC种子内容 · Discord激活 · Arena开发日志 | 6月 | 预约+预热 | 预约开放 · World Cup预热绑定 · KOC挑战赛启动 | 7月初 | 大版本上线 | T-7:Arena预告 · T日:Arena+PVE上线 · World Cup有机爆发 | 7月后 | 留存运营 | D7数据追踪 · KOC持续运营 · Phase2评估
+
+=== Slide 4 ===
+预算分配建议 | Phase 1 参考预算：$50-100K/月（测试期，KOC为主，KOL按需） | Google UAC（谷歌搜索+Play） | 50% | 主渠道，稳定量 | TikTok 付费 | 25% | 有机放大，世界杯绑定 | YouTube 付费 | 15% | 内容沉淀 | KOC 合作（种子用户） | 10% | 有机爆发 | ASA = Apple Search Ads（苹果搜索广告） | App Store 内的付费搜索流量，用户主动搜索时展示，精准但量小。测试期可小预算测试。
+
+=== Slide 5 ===
+立即行动项（4-6月） | 停服维护期 · 准备冲刺阶段 | P0 | • 评分改善（3.7→3.8，目标4.0） | • 印尼/越南/巴西本地化（6月中前） | • KOC种子名单确认（5月底前） | • 广告素材制作（6月中前）：Arena实况×3版 / PVE实录 / 3C对比 | P1 | • 预约页面开放（6月中） | • Discord社区激活（持续） | • World Cup 热点内容储备 | • KOC Arena挑战赛规则设计 | P2 | • 智利/阿根廷本地化（7月前） | • 日本市场评估（Q3决策） | • 巴西Free Fire社群打入（KOC种子）
+
+=== Slide 6 ===
+产品核心定位 | 进去抢，活着出来就是你的 | 产品定位 | 中世纪地牢 Extraction RPG | 单局时长 | 5–15分钟快节奏单局 | 商业化 | Hero直购（本次测试不宣传BP等付费内容） | 当前状态 | Google Play 3.7 ⚠  ·  测试：MX/CO  ·  4-6月停服维护 | ⚠ 7月目标：3.7 → 4.0+（3.7分是市场门槛，7月前需改善） | 7月大版本核心内容 | ⚔ Arena 竞技场 | 🏰 PVE 模式 | 🎯 3C 核心升级
+
+=== Slide 7 ===
+目标用户估算逻辑 | ⚠️ TA 不是“所有MOBA用户”——而是经过年龄 × 品类偏好 × 市场渗透率 × 转化率筛选后的实际可触达用户 | 1. 总人口 | 例：印尼 2.8亿 | ↓ | 2. 网民 / 智能手机用户 | × 80% | ↓ | 3. 年龄段筛选（16-30岁） | × ~25% | ↓ | 4. 品类偏好（竞技/射击/MOBA） | × ~15% | ↓ | 5. 市场渗透率（MOBA成熟度） | × High/Growing | ↓ | 6. Reachable TA | = 最终可触达用户 | ⚠️ 拉美MOBA渗透说明：MLBB全球MAU ~24.6M，巴西/墨西哥仅列“Growing”（非High）。MOBA在拉美体量远小于SEA，TA规模应保守估算。参考：MLBB Brazil #7全球兴趣，Wild Rift在BR/MX有渗透但无官方数据。
+
+=== Slide 8 ===
+目标用户规模估算（修正版） | TA = 网民 × 年龄段 × 品类偏好 × 市场渗透率 × 转化率（所有漏斗均需相乘） | 🇮🇩 Indonesia | 最优先 | Reachable TA | 1-3M | 参考用户 | MLBB High / AOV | 🇻🇳 Vietnam | 最优先 | Reachable TA | 0.8-2M | 参考用户 | AOV MAU ~4-6M（已验证） | 🇲🇽 Mexico | 第三 | Reachable TA | 0.3-0.8M | 参考用户 | WR Growing + MLBB Growing | 🇧🇷 Brazil | 第二 | Reachable TA | 0.3-0.8M | 参考用户 | MLBB Growing #7全球兴趣 | 🇦🇷 Argentina | 第四 | Reachable TA | 0.1-0.3M | 参考用户 | LoL PC传承 / WR渗透低 | 🇨🇱 Chile | 第五 | Reachable TA | 0.05-0.2M | 参考用户 | LoL PC传承 / WR渗透低
+
+=== Slide 9 ===
+目标用户三层漏斗 | CORE — 核心用户 | MOBA 品类玩家（5v5/竞技类） | 单市场 ~0.05-3M  |  6市场合计 ~3-9M | SECONDARY — 次核心用户 | 竞技品类 + RPG 玩家（Extraction/PvP/地牢） | 单市场 ~0.2-6M  |  6市场合计 ~7-20M | TERTIARY — 泛用户 | 动作游戏轻度用户 / 世界杯泛流量 | 单市场 ~0.5-15M  |  6市场合计 ~20-45M | ▼ 漏斗 ▼ | 各市场三层估算 | 市场 | Core | 次核心 | 泛用户 | 🇮🇩 Indonesia | 1-3M | 3-6M | 8-15M | 🇻🇳 Vietnam | 0.8-2M | 2-4M | 5-10M | 🇲🇽 Mexico | 0.3-0.8M | 1-2M | 3-6M | 🇧🇷 Brazil | 0.3-0.8M | 1-2M | 4-8M | 🇦🇷 Argentina | 0.1-0.3M | 0.3-0.8M | 1-2M | 🇨🇱 Chile | 0.05-0.2M | 0.2-0.5M | 0.5-1M | Core = MOBA品类  |  次核心 = 竞技+地牢RPG  |  泛用户 = 动作轻度+世界杯流量
+
+=== Slide 10 ===
+7月大版本核心内容（三大营销素材支柱） | 测试重点：留存（Battle Pass等付费内容本次不宣传） | ⚔ #1 竞技场 Arena | 最高营销价值 | • PVP核心玩法，天梯/排名 | • 可做大量素材 | • 天梯冲分 / 以弱胜强 / 公平竞技 | • 地牢风险回报 / 装备驱动 | 素材格式: 15s竖屏×3版 | TikTok/YT Reels | 🏰 #2 PVE 模式 | 留存利器 | • 降低门槛，留存友好 | • 适合「新手友好」叙事 | • 新手友好 / 通关成就感 | • 剧情体验 / 组队副本 | 素材格式: 15-30s版 | YT/TikTok | 🎯 #3 3C 核心升级 | 核心玩法质变 | • Control + Camera + Character整体升级 | • 易用性（视野）·操作性（精准度） | • 打击感（反馈）·策略性（观察） | • Before/After对比视频素材 | 素材格式: 并排对比视频 | YT/FB/买量
+
+=== Slide 11 ===
+竞品分析：手游近战搜打撤赛道 | 手游「中世纪地牢 + 近战 + Extraction + 英雄技能」= 真正品类空白 | Arena Breakout | FPS写实 | ❌近战 | ❌中世纪 | P2W争议，15-30分钟局 | Delta Force Mobile | FPS写实 | ❌近战 | ❌中世纪 | Extraction是附加，非核心 | MISFITZ | Top-down卡通 | ✅近战 | ❌中世纪 | 最接近但非中世纪/地牢 | Roads of Ruin | Top-down ARPG | ✅近战 | ❌中世纪 | RPG而非Extraction | PC/Console 参考（用户认知来源，无手游版本） | → Dark and Darker — 中世纪地牢 Extraction | → Hunt: Showdown — 中世纪近战 | → Marvel Rivals — 英雄+地牢
+
+=== Slide 12 ===
+KOC 爆发策略（替代大KOL投放） | 测试期预算有限，不走大KOL路线。利用现有KOC种子用户做有机传播爆发。 | 🎮 Easy Play, Easy Win 计划 | 给KOC方向 + 给资源 + 持续沟通 | 5K Gold/视频，最多4视频/周期 | Top 10 获得官方推广 + $50 ad boost | 每周检查performance metrics | 🏆 Arena 挑战赛（UGC传播） | 举办Arena冲分挑战赛 | KOC参与有奖励（皮肤/Gold） | 赛事内容二创传播 | 锚定「Arena回来了」的舆论 | 🤝 老玩家召回计划 | 定向邀请老测试玩家回归 | 提供Arena独占体验 | 口碑裂变：老带新奖励 | Discord/FB社群激活 | 🎯 World Cup 热点绑定 | 蹭世界杯话题做内容 | Arena世界杯地图上线 | Predict the Exit话题 | 比赛日有机爆发（不花钱买量） | CPM参考（实际验证）：YouTube $0.29 · TikTok $0.56 · UGC活动 $2.31（KOC有机传播CPM极低）
+
+=== Slide 13 ===
+素材 breakdown | 测试重点：留存（Battle Pass等付费内容不宣传）  |  优先素材：Arena + 组队类 | 素材类型 | 受众 | 内容方向 | 格式 | 渠道 | Arena 实况 | 竞技型玩家 | 天梯冲分 / 以弱胜强 | 15s竖屏×3版 | TikTok/YT Reels | Arena 真人反应 | 泛用户 | 开黑翻车集锦 | 竖屏×2版 | TikTok | PVE 实录 | 新手玩家 | 新手友好 / 通关成就感 | 15-30s版 | YT/TikTok | 3C 对比（旧vs新） | 所有用户 | Camera变更 / 打击感 | 并排对比视频 | YT/FB/买量 | 新英雄展示 | 核心用户 | 技能展示 / 强度分析 | 10s技能+立绘 | YT/KOC | 组队开黑片段 | 社交型玩家 | 和朋友一起玩的乐趣 | 竖屏/横版 | TikTok/FB | 迷因向短剪 | MZ世代 | 地牢翻车搞笑集锦 | 5-10s梗视频 | TikTok | World Cup 绑定 | 所有用户 | 世界杯热点 + Arena地图 | 5-15s热点视频 | TikTok有机
+

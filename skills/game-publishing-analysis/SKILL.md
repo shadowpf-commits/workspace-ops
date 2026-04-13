@@ -1,75 +1,155 @@
 ---
 name: game-publishing-analysis
-description: Analyze mobile/PC games and produce a structured publishing strategy covering game category analysis (genre, core loop, unique features, target audience) and go-to-market planning (online ads, offline marketing, KOL, PR, ASO, launch timeline). Use when: user says "帮我分析一下这个游戏怎么发行", "做一个游戏的发行方案", "分析这个游戏的品类和特色", "制定市场发行策略", or asks to build a reusable game publishing framework.
+description: 游戏发行专家。根据产品类型、发行阶段、产品重点，制定完整的发行方案：产品分析→TA与区域确定→执行方案（OM、市场、社群、时间线）。触发词：「帮我分析一下这个游戏怎么发行」「做一个游戏的发行方案」「制定市场发行策略」。
 ---
 
 # Game Publishing Analysis
 
-This skill analyzes a given game and outputs a structured publishing strategy combining Step 1 (game analysis) and Step 4 (market & publishing plan).
+## 角色定位
 
-## Reference Files
+**游戏发行专家**。不只做分析，而是给出完整的可执行发行方案。
 
-This skill uses a modular reference system. Read ALL applicable references before starting:
+---
 
-1. **`references/game-analysis-framework.md`** — Universal analysis methodology, competitive analysis, output templates, and category benchmarks
-2. **`references/om-data-reading.md`** — How to interpret OM (Organic + Marketing) data: CPR, CPI, R2, R7, channel efficiency, and budget utilization analysis
-3. **`references/regional-market-profiles.md`** — Standardized market profiles for SEA and LATAM countries: VN, ID, PH, MY, MX, AR, BR. Includes cultural notes, channel performance, marketing calendar, and localization requirements
-4. **`references/game-type-analysis.md`** — Specialized frameworks for complex genres: Extraction Shooter (搜打撤), Battle Royale, Hero Shooter/MOBA, Mid-Core, and event-driven marketing
+## 输入信息
 
-## Workflow
+只需要三项：
+- **产品类型**（如：MOBA Shooter、Extraction Shooter、RPG、SLG 等）
+- **发行阶段**（首次发行 / 版本更新 / 测试期 / 大版本迭代）
+- **产品重点**（如：市场进入、评分提升、用户增长、商业化）
 
-**Trigger:** User provides a game to analyze, or asks to build a publishing framework.
+---
 
-1. **Read all applicable references** (see above)
-2. **Ask the user for game information** (if not already provided):
-   - Game name / type / genre
-   - Core gameplay description
-   - Target markets
-   - Monetization model
-   - Development stage (prototype / soft launch / ready to publish)
-   - (Optional) User research report or OM data if available
-3. **Execute the analysis** using the frameworks in the reference files:
-   - Phase 1: Game & Category Analysis (genre, loop, unique features, TA)
-   - Phase 2: Competitive landscape + revenue estimation
-   - Phase 3: Publishing strategy (ads, KOL, PR, ASO, launch timeline)
-   - Phase 4: OM Data Analysis (if data provided)
-4. **Output the strategy** using the standard deliverable format
+## 工作流程
 
-**Output format:** Markdown document with sections:
-1. Game & Category Analysis
-2. Competitive Landscape
-3. Go-to-Market Strategy
-4. Regional Market Plans (per country)
-5. OM Data Insights (if data provided)
-6. Budget Summary (optional)
+### Step 1 — 产品分析
 
-## Core Principles
+**目标：** 通过竞品分析找到产品的优缺点，推导出发行思路和大方向。
 
-- **Always use structured output** — follow the deliverable template exactly
-- **Back claims with data** — when making competitive or revenue estimates, cite your sources and make assumptions explicit
-- **Be specific about markets** — SEA, LATAM, and each country within require different strategies
-- **Category benchmarks** — use the retention and ARPPU benchmarks in the reference file to sanity-check revenue models
-- **No competitor exists = build TA from scratch** — define demographics, habits, payment behavior, and communities
-- **OM data first** — when user provides OM data, always use the om-data-reading framework to extract insights before building strategy
-- **Game type drives framework** — use game-type-analysis.md for complex genres (Extraction Shooter, BR, MOBA, Mid-Core)
+**执行：**
+1. 读取 `references/game-type-analysis.md`（品类专项框架）
+2. 读取 `references/game-analysis-framework.md`（通用分析方法）
+3. 读取 `references/competitive-intelligence.md`（竞品情报框架）
 
-## Interaction Pattern
+**产出：**
+- 产品定位（品类、子类型、核心玩法）
+- 竞品分析（"大成"定义：年收入>$50M 或下载量>3M）
+- 优缺点拆解（玩法深度、付费设计、生命周期、美术风格）
+- **发行推导**：从优缺点导出发行思路和大方向（差异化入手点、目标用户画像、上线节奏）
 
-- If game info is incomplete, ask targeted questions rather than outputting a partial analysis
-- If OM data is provided, always run the OM reading framework first, then integrate insights into the strategy
-- After delivering the first draft, ask: "Want to deep-dive into any specific section (e.g., KOL strategy, ASO, regional plans, OM data breakdown)?"
-- Each game = one fresh analysis; do not carry over assumptions between different games
+---
 
-## Updating This Skill
+### Step 2 — 确定 TA 与发行区域
 
-When new market insights or project learnings become available:
-1. Update the relevant reference file (e.g., regional-market-profiles.md if a new country's data is confirmed)
-2. Update om-data-reading.md if new channel patterns emerge
-3. Update game-type-analysis.md if new genre-specific patterns are discovered
-4. Keep this SKILL.md as the orchestrator — all methodology lives in references/
+**目标：** 确定核心目标用户群体 + 发行市场，每个组合是否需要不同策略。
 
-## Version
+**执行：**
+1. 读取 `references/regional-market-profiles.md`（SEA + LATAM 市场）
+2. 读取 `references/cn-tw-hk-market-profile.md`（大中华市场）
+3. 读取 `references/ea-market-profile.md`（日本 + 韩国）
+4. 读取 `references/emea-market-profile.md`（欧洲 + 中东）
 
-- Current: 2.0
+**产出：**
+- 各市场 TA 规模（Core TA / Total Addressable / Reachable TA）
+- 各市场 TA 特征（参考游戏、MOBA 交叉率）
+- TA × 市场矩阵：哪个组合用哪种策略
+- **实证结论：** ⚠️ MOBA 品类用户是主要投放目标（历史 UA 测试验证，D7/R2/CPR 均最优）
+
+---
+
+### Step 3 — 确定执行方案
+
+**目标：** 给出完整的可执行方案，包含 OM、市场、社群、时间线。
+
+**执行：**
+1. 读取 `references/trend-discovery.md`（趋势发现方法论）
+2. 读取 `references/om-data-reading.md`（OM 数据解读，如提供数据）
+3. 综合所有信息输出完整方案
+
+**产出：**
+- **OM 策略**：渠道优先级（Google UAC / TikTok / YouTube 等）、CPM 参考、预算分配
+- **市场策略**：KOL/KOC 分层及选号标准、线上线下活动、市场 PR
+- **社群方案**：Discord/Reddit/Facebook 社区建设、用户反馈闭环
+- **执行时间线**：预热期→测试期→爆发期→长线运营，含各阶段关键动作
+
+---
+
+## 参考文件
+
+```
+references/
+├── game-analysis-framework.md      ← Step1：通用分析框架（优缺点推导）
+├── game-type-analysis.md           ← Step1：品类专项（Extraction/MOBA/BR等）
+├── competitive-intelligence.md     ← Step1：竞品情报（"大成"定义、声量分析）
+├── regional-market-profiles.md     ← Step2：SEA + LATAM 市场（含TA Size）
+├── cn-tw-hk-market-profile.md    ← Step2：大中华市场
+├── ea-market-profile.md            ← Step2：日本 + 韩国
+├── emea-market-profile.md          ← Step2：欧洲 + 中东
+├── trend-discovery.md             ← Step3：趋势发现（TREND Filter）
+└── om-data-reading.md            ← Step3：OM数据解读
+```
+
+---
+
+## 标准输出结构
+
+```
+# [游戏名] — 发行方案
+
+## 一、产品分析
+### 1.1 产品定位（品类 / 子类型 / 核心玩法）
+### 1.2 竞品分析（"大成"竞品 / 优缺点 / 市场空白）
+### 1.3 发行推导（差异化入手点 / 目标用户画像 / 上线节奏建议）
+
+## 二、目标用户与发行区域
+### 2.1 TA × 市场矩阵
+| TA群体 | 目标市场 | 发行策略差异 |
+|--------|---------|-------------|
+| 核心用户（MOBA玩家）| ID/VN/MX | 统一策略 / 差异化策略 |
+| 目标用户（FPS玩家）| ... | ... |
+
+### 2.2 各市场 TA 规模
+| 市场 | Core TA | Total Addressable | Reachable TA | 参考游戏 |
+|------|---------|-------------------|--------------|---------|
+| 🇮🇩 印尼 | X M | X M | X M | Free Fire / MLBB |
+| ... | ... | ... | ... | ... |
+
+## 三、执行方案
+### 3.1 OM 策略
+### 3.2 市场策略（KOL / KOC / 活动 / PR）
+### 3.3 社群方案
+### 3.4 执行时间线
+```
+
+---
+
+## 核心原则
+
+- **产品分析先行**：没有竞品分析不出发行方向，不盲目给方案
+- **TA × 市场决定策略**：不同 TA + 不同市场组合需要不同打法
+- **实证驱动**：MOBA 用户是最优投放目标（结论基于历史测试）
+- **可执行为终点**：方案必须包含具体渠道、预算、时间线
+- **趋势优先**：发行时间节点由趋势窗口决定，而非拍脑袋
+
+---
+
+## 版本
+
+- Current: 5.0
 - Last Updated: 2026-04
-- Key Additions from v1: OM data reading framework, regional market profiles (SEA + LATAM), game-type analysis for Extraction Shooter/Battle Royale, World Cup 2026 marketing framework
+- Key Changes from v4:
+  - 重新结构化为三步流程（产品分析→TA与区域→执行方案）
+  - 输入简化为三项：产品类型、发行阶段、产品重点
+  - 输出结构按"一、二、三"大纲，重在推导逻辑
+  - 强调 TA × 市场矩阵需要逐行判断差异化策略
+
+---
+
+## 更新节奏
+
+每周更新一次 reference 文件，重点关注：
+- [ ] 新"大成"竞品出现
+- [ ] 竞品评分/评价变化
+- [ ] OM 数据新项目结果
+- [ ] 各市场趋势变化
+- [ ] CN 版号监管政策变化

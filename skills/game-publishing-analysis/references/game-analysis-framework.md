@@ -1,142 +1,136 @@
-# Game Publishing Analysis Framework
+# Game Analysis Framework
 
 ## Overview
 
-This skill produces a structured game publishing strategy by combining game category analysis (Step 1) with marketing & publishing planning (Step 4). It is designed for mobile games but adapts to PC/console as needed.
+本文件是 Step 1（产品分析）的核心方法论：如何通过竞品分析找到产品的优缺点，并推导出发行思路和大方向。
 
 ---
 
-## The Analysis Workflow
-
-When the user provides a new game, follow this process:
-
-### PHASE 1 — Game Analysis (Step 1)
-
-**1.1 Game Category Identification**
-- Primary genre: RPG / SLG / Puzzle / Card / Casino / Casual / Action / Strategy / Simulation / Sports / **Extraction Shooter**
-- Sub-genre and hybrid elements
-- Gameplay loop: core mechanic, progression system, social features
-- P2E / F2P / Premium / Subscription model
-- For Extraction Shooter / Battle Royale / Hero Shooter: note the specific sub-type (e.g., "搜打撤" extraction, "近战竞技", BR, MOBA-Arena, etc.)
-
-**1.2 Unique Feature Extraction**
-- What makes this game stand out from同类?
-- Core innovation (mechanics, narrative, art style, social)?
-- Is it a proven formula with better execution, or something new?
-
-**1.3 Target Audience Profiling**
-If no direct competitor: build TA profile
-- Age range
-- Gender distribution
-- Geography / culture
-- Play habits (hardcore / casual, session length, frequency)
-- Payment willingness
-- Communities they inhabit
-
-If competitor exists: see Phase 2
-
----
-
-### PHASE 2 — Competitor & Market Analysis (Steps 2–3)
-
-**2.1 Competitor Identification**
-Search for top-performing games in the same category and target market. Sources: App Annie / Sensor Tower /点点数据 / azeranking
-
-**2.2 Competitor Assessment**
-For each competitor:
-- Markets: which countries perform best
-- Strengths: what are they doing well
-- Weaknesses: complaints, gaps, unmet needs
-- Monetization: how they make money (IAP / Ads / Subscription)
-- User review themes (positive and negative)
-
-**2.3 Revenue Estimation**
-- TAM estimate: total addressable audience size
-- ARPPU assumption based on category benchmarks:
-  - Casual: $5–20 ARPPU
-  - Mid-core: $20–100 ARPPU
-  - Hardcore / SLG / Extraction Shooter: $100–500+ ARPPU
-- Estimated conversion rate (free → paying)
-- Revenue = DAU × conversion × ARPPU
-- Best / Base / Bear case scenarios
-
----
-
-### PHASE 3 — Publishing Strategy (Step 4)
-
-**3.1 Online Advertising Plan**
-- Primary ad platforms by region:
-  - SEA: Google Ads, Facebook/Meta, TikTok, YouTube
-  - East Asia (Korea/Japan/Taiwan): Google, Meta, TikTok, LINE Ads
-  - Europe: Google, Meta, TikTok, Unity Ads
-  - US: Google, Meta, TikTok, Unity, Apple Search Ads
-  - LATAM: Google Ads, Facebook/Meta, TikTok
-- Creative strategy: trailers, gameplay clips, influencer UGC
-- Retargeting plan for installers who did not convert
-
-**3.2 Offline / Brand Activities**
-- Press releases: targeted gaming media (PocketGamer, GameBiz, etc.)
-- Localized landing pages / website
-- Community building: Discord server, Reddit, local forums
-- Influencer / KOL program:
-  - Macro (1M+ followers): brand awareness
-  - Micro (10K–500K): high engagement, niche audiences
-  - Mid-tier (500K–1M): balanced reach and engagement
-- Events / conference presence if applicable
-
-**3.3 App Store Optimization**
-- Keyword strategy in local language
-- Screenshot and video trailer localization
-- Feature graphic and icon adaptation
-- Rating management plan
-- Localization quality (native speaker review)
-
-**3.4 Soft Launch & Full Launch Plan**
-- Soft launch markets (e.g., Canada, Australia, Philippines) before global
-- KPI framework: Day 1/7/30 retention, ARPDAU, LT PD
-- Budget allocation by phase
-
----
-
-## Output Format
-
-Structure the final deliverable as:
+## 核心逻辑链
 
 ```
-# [Game Name] — Publishing Strategy
+竞品分析 → 优缺点拆解 → 市场空白 → 发行思路推导
+```
 
-## 1. Game & Category Analysis
-### 1.1 Category & Core Loop
-### 1.2 Unique Features
-### 1.3 Target Audience
+**注意：** 没有竞品就不分析产品？不——没有竞品意味着是全新赛道，发行思路就是"建立品类认知"，这本身就是一种方向。
 
-## 2. Competitive Landscape
-### 2.1 Key Competitors
-### 2.2 SWOT Analysis
-### 2.3 Revenue Estimate
+---
 
-## 3. Go-to-Market Strategy
-### 3.1 Online Advertising
-### 3.2 KOL & Influencer
-### 3.3 PR & Community
-### 3.4 ASO Plan
-### 3.5 Launch Timeline
+## 第一步：产品定位
 
-## 4. Budget Summary (if applicable)
+### 1.1 品类识别
+
+| 维度 | 问题 |
+|------|------|
+| 主品类 | RPG / MOBA / FPS / SLG / Puzzle / Casino / Casual / Extraction Shooter |
+| 子类型 | 如：Hero Extraction、Auto Battler、Battle Royale |
+| 核心循环 | 进入→??→??→??（提取/消除/通关）|
+| 商业化 | 抽卡 / 直购 / Battle Pass / 广告 / 混合 |
+| 平台 | Mobile / PC / Console / Cross-platform |
+
+### 1.2 关键差异化特征
+
+列出 3-5 个与竞品最不同的核心差异，这些是发行的"入手点"：
+
+| 差异点 | 竞品通常怎么做 | G&G 优势 |
+|--------|-------------|---------|
+| 例：5分钟速战 | Free Fire 20分钟 | 时间碎片化优势 |
+| 例：中世纪题材 | 现代军事/科幻主流 | 题材差异化 |
+| 例：英雄直购 | 大多数抽卡 | 付费透明降低门槛 |
+
+---
+
+## 第二步：竞品分析（→优缺点推导）
+
+### 竞品来源
+- Sensor Tower / App Annie 品类排行榜 Top 50
+- Google Play / App Store 品类畅销榜
+- YouTube 搜索：同品类 gameplay 播放量高的
+
+### "大成" 定义
+- **年收入 > $50M** 或 **年下载量 > 3M**
+
+### 优缺点拆解框架
+
+| 维度 | 分析内容 | 数据来源 |
+|------|---------|---------|
+| 玩法深度 | 核心循环复杂度、策略深度 | Gameplay 体验、Reddit 讨论 |
+| 付费设计 | 付费点设计、逼氪程度 | 畅销榜排名变化、玩家评论 |
+| 生命周期 | 多久出内容更新、玩家留存 | 版本更新时间线 |
+| 美术风格 | 视觉差异化、美术投入 | 截图、预告片 |
+| 技术稳定性 | 服务器、崩溃、加载速度 | Google Play 差评主题 |
+| 社群活跃 | Discord/Reddit 活跃度 | 社区规模、官方响应速度 |
+
+### 声量比例量化
+
+```
+正面声量 : 负面声量 = X : Y
+
+统计方法：
+- Google Play 评分分布（5星 vs 1-2星占比）
+- Reddit/Twitter 讨论正面 vs 抱怨比例
+- 差评主题归类（服务器 / 平衡性 / 付费 / 匹配）
+```
+
+### 市场空白识别
+
+| 空白类型 | 定义 | 发行机会 |
+|---------|------|---------|
+| 品类空白 | 该赛道在目标市场无强力选手 | 直接进入 |
+| 体验空白 | 有竞品但核心体验有缺陷 | 微创新切入 |
+| 价格空白 | 付费设计让用户不满 | 更公平的付费设计 |
+
+---
+
+## 第三步：从优缺点推导发行方向
+
+### 推导矩阵
+
+| 竞品弱点 | 我们的优势 | 发行入手点 |
+|---------|-----------|----------|
+| 服务器经常崩溃 | 我们服务器稳定 | "流畅游戏体验"作为核心卖点 |
+| 抽卡太坑 | 英雄直购透明 | "不逼氪"作为核心宣传点 |
+| 匹配太慢 | 5分钟速战 | "随时开黑一局"作为核心场景 |
+
+### 发行大方向确定
+
+基于以上分析，回答三个问题：
+
+1. **差异化核心是什么？**（题材 / 玩法微创新 / 美术风格 / 商业化模式）
+2. **目标用户是谁？**（MOBA 玩家 / FPS 玩家 / 休闲玩家）
+3. **上线节奏怎么走？**（测试期多久 / 什么节点进入爆发）
+
+---
+
+## 输出格式
+
+```
+## 一、产品分析
+
+### 1.1 产品定位
+- 品类：...
+- 子类型：...
+- 核心循环：...
+- 商业化：...
+
+### 1.2 关键差异化（3-5点）
+| 差异点 | 竞品通常 | 我们的优势 |
+|--------|---------|-----------|
+
+### 1.3 竞品分析
+- "大成"竞品列表（规模/优缺点/市场空白）
+- 声量比例：正面 X : 负面 Y
+
+### 1.4 发行推导
+- 差异化核心：...
+- 目标用户：...
+- 上线节奏建议：...
 ```
 
 ---
 
-## Category Benchmarks Reference
+## 版本
 
-| Category | Typical D1 Retention | Typical D30 Retention | ARPPU Range |
-|----------|---------------------|-----------------------|-------------|
-| casino / Slots | 40–60% | 10–20% | $100–500+ |
-| SLG | 30–45% | 8–15% | $80–300 |
-| RPG | 30–50% | 10–20% | $50–200 |
-| Puzzle / Casual | 25–40% | 5–10% | $5–30 |
-| Card / CCG | 25–40% | 8–15% | $30–100 |
-| Action / Battle Royale | 30–50% | 8–12% | $10–50 |
-| Extraction Shooter | 35–55% | 10–20% | $50–200 |
-
-Use these as sanity checks when reviewing user-provided data.
+- Date: 2026-04
+- Version: 1.0
+- Based on: SKILL.md v5 workflow

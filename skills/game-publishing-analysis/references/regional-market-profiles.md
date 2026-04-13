@@ -6,6 +6,21 @@ This reference contains standardized market profiles for key game publishing mar
 
 ---
 
+## ⚠️ Empirical Finding: MOBA Users Are Primary Target
+
+**Based on prior UA tests across multiple markets, MOBA category users consistently show the BEST performance metrics (D7, R2, CPR) compared to other audience segments.**
+
+Therefore:
+- **Core TA (MOBA players) = PRIMARY acquisition target**, not a secondary consideration
+- FPS/TPS fans are complementary audiences, not the priority
+- When planning UA campaigns, prioritize MOBA gamer targeting signals over generic FPS/action targeting
+- Reference game audiences (MLBB, Wild Rift, LoL) are the prime lookalike seeds for UA
+
+---
+
+
+---
+
 ## SEA Markets
 
 ---
@@ -14,9 +29,26 @@ This reference contains standardized market profiles for key game publishing mar
 
 **Market Size & Growth**
 - Population: ~100M
-- Gaming market: $1.2B+ (fastest growing in SEA)
+- Gaming market: $1.66B (2025), growing at 9.77% annually
 - Active gamers: 55M+ (over half the population)
 - 96% prefer mobile gaming
+
+**MOBA Market Context**
+- **AOV (Arena of Valor) is the dominant MOBA** — NOT Mobile Legends
+- AOV Vietnam = largest market globally (33% of AOV non-CN downloads, per Sensor Tower)
+- AOV Vietnam MAU: ~4-6M (based on AOV global ~12.5M MAU)
+- Active professional league: Arena of Glory (18 seasons); Vietnam won SEA Games 2025 AOV gold
+- SEA Games 2025 AOV: 1M+ peak viewers, Vietnamese audience led growth
+- Secondary MOBA: Free Fire + PUBG Mobile (FPS, not direct MOBA competitors)
+
+**Target Audience Sizing (MOBA-Shooter Type)**
+- Core TA (active MOBA players): ~4-6M (AOV-dominant)
+- Secondary TA (FPS/TPS fans): ~5-8M
+- Total Addressable (mobile action players): ~15-20M
+- Reachable TA (with budget/media access): ~4-7M
+- TA Profile: Predominantly male 16-35; AOV players are the prime MOBA-shooter prospect
+- Primary reference game for UA targeting: **AOV** (NOT MLBB)
+- MOBA crossover rate (AOV → MOBA-shooter): Estimated 40-50%
 
 **User Profile**
 - Age: 18-35, predominantly male
@@ -64,6 +96,15 @@ This reference contains standardized market profiles for key game publishing mar
 - Gaming market: Large and growing
 - Smartphone adoption: 99.4% among internet users
 - 96% of gamers prefer mobile titles
+
+**Target Audience Sizing (MOBA-Shooter Type)**
+- Core TA (active MOBA players): ~25-35M
+- Secondary TA (FPS/TPS fans): ~15-20M
+- Total Addressable (mobile action players): ~45-55M
+- Reachable TA (with budget/media access): ~15-25M
+- TA Profile: Male 16-35 dominant; Mobile Legends is THE defining game — ML players = prime MOBA-shooter prospect
+- MOBA crossover rate (ML → MOBA-shooter): Estimated 40-50% (ML is a social platform, not just a game)
+- Ramadan spike: TA engagement +60-80% during Ramadan month
 
 **User Profile**
 - Age: 18-35, predominantly male
@@ -113,6 +154,14 @@ This reference contains standardized market profiles for key game publishing mar
 - Gaming market: Growing rapidly
 - Mobile gaming: Dominant platform
 
+**Target Audience Sizing (MOBA-Shooter Type)**
+- Core TA (active MOBA players): ~8-12M
+- Secondary TA (FPS/TPS fans): ~5-8M
+- Total Addressable (mobile action players): ~15-20M
+- Reachable TA (with budget/media access): ~4-8M
+- TA Profile: Balanced gender, 16-35; English fluency makes content adaptation easier
+- MOBA crossover rate (ML → MOBA-shooter): Estimated 30-40%
+
 **User Profile**
 - Age: 18-35, balanced gender ratio
 - Play habits: Mobile-first, social gaming, love competitive titles
@@ -140,6 +189,14 @@ This reference contains standardized market profiles for key game publishing mar
 - Payment: Higher ARPU than regional neighbors
 - Top games: Mobile Legends, PUBG Mobile, Valorant
 
+**Target Audience Sizing (MOBA-Shooter Type)**
+- Core TA (active MOBA players): ~4-6M
+- Secondary TA (FPS/TPS fans): ~3-5M
+- Total Addressable (mobile action players): ~8-12M
+- Reachable TA (with budget/media access): ~2-4M
+- TA Profile: Multi-ethnic; Malay (Muslim) + Chinese communities have different game preferences; higher ARPU than neighbors
+- MOBA crossover rate: Estimated 30-40%
+
 **Cultural Notes**
 - Multi-ethnic: Malay (Muslim), Chinese, Indian communities
 - Each ethnic group has distinct gaming preferences
@@ -164,6 +221,14 @@ This reference contains standardized market profiles for key game publishing mar
 - Gaming market: $2B+
 - Largest gaming market in LATAM
 - 2026: Co-host of FIFA World Cup — massive marketing opportunity
+
+**Target Audience Sizing (MOBA-Shooter Type)**
+- Core TA (active MOBA players): ~10-15M
+- Secondary TA (FPS/TPS fans): ~8-12M
+- Total Addressable (mobile action players): ~22-30M
+- Reachable TA (with budget/media access): ~8-15M
+- TA Profile: Male 16-40; Wild Rift + Free Fire are key MOBA/FPS reference points; football fans overlap strongly
+- MOBA crossover rate (WR → MOBA-shooter): Estimated 30-40%
 
 **User Profile**
 - Age: 18-40, predominantly male
@@ -221,6 +286,14 @@ This reference contains standardized market profiles for key game publishing mar
 - Gaming market: Significant, growing
 - Independent server required (not merged with MX)
 
+**Target Audience Sizing (MOBA-Shooter Type)**
+- Core TA (active MOBA players): ~4-6M
+- Secondary TA (FPS/TPS fans): ~3-5M
+- Total Addressable (mobile action players): ~8-12M
+- Reachable TA (with budget/media access): ~2-5M
+- TA Profile: Male 16-40; dollarized economy = price-sensitive but passionate; Steam + mobile hybrid
+- MOBA crossover rate: Estimated 25-35%
+
 **User Profile**
 - Age: 18-40, predominantly male
 - Play habits: Mobile + PC; Steam is popular for PC gaming
@@ -259,6 +332,14 @@ This reference contains standardized market profiles for key game publishing mar
 - Population: 215M+
 - Gaming market: $2.5B+ (largest in LATAM)
 - Independent server required (not merged with MX/AR)
+
+**Target Audience Sizing (MOBA-Shooter Type)**
+- Core TA (active MOBA players): ~15-22M
+- Secondary TA (FPS/TPS fans): ~12-18M
+- Total Addressable (mobile action players): ~30-40M
+- Reachable TA (with budget/media access): ~10-20M
+- TA Profile: Male 16-40; Free Fire is the defining FPS; TikTok is MASSIVE for discovery; Portuguese-only, not Spanish
+- MOBA crossover rate (Free Fire → MOBA-shooter): Estimated 25-35%
 
 **User Profile**
 - Age: 18-40, balanced gender
